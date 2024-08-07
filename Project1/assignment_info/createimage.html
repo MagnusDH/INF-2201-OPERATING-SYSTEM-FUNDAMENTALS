@@ -1,0 +1,109 @@
+
+<!-- saved from url=(0096)https://fronter.com/uit/links/files.phtml/2059582350$194317235$/Arkiv/Project+1/createimage.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<style type="text/css"></style></head><body><cleaned_tag http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<cleaned_tag name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<cleaned_tag name="ProgId" content="FrontPage.Editor.Document">
+
+<title>NAME createimage</title>
+
+
+
+
+
+
+
+
+
+<p>NAME<br>
+
+<b>createimage</b> - create operating  system  image  suitable  for placement on a boot
+
+disk.<br>
+
+<br>
+
+SYNOPSIS<br>
+
+<b>createimage [--extended] [--vm] &lt;bootblock&gt; &lt;file&gt; ...</b><br>
+
+<br>
+
+DESCRIPTION<br>
+
+     This manual page documents the createimage program  used  to produce  an  image  suitable  for  placement on a boot disk.
+
+When run, the result is placed in a file called <b> image</b> residing in the directory the command was
+
+invoked from.  The image can be placed on a boot disk (e.g. <i>/dev/fd0</i>) by issuing&nbsp;</p>
+
+<p><b>&nbsp;&nbsp;&nbsp; cat image  &gt; /dev/fd0</b>&nbsp;</p>
+
+<p>on  the  shell  command-line, assuming that you have supplied the bootblock code as one of the executable components.<br>
+
+<br>
+
+<b>     createimage</b>  parses  each  of  the  given  executable  files according  to  the  ELF specification.  Thus, the executable
+
+files must be compliant to  the  ELF  standard  of  position independent
+
+linking.<br>
+
+<br>
+
+     The format of the image is  fairly  simple.  The  first  512 bytes  of  the file contains the code for the
+
+<b> bootblock</b>. The memory image of the entire OS follows  the  bootblock.   The
+
+size  of  the  OS (in sectors) is stored as a "short int" (2 bytes) at location 2 (counting from 0) in the image.<br>
+
+<br>
+
+OPTIONS<br>
+
+<b>     --extended</b><br>
+
+          Print extended information  useful  for  debugging  the operating system image, process placement in memory and
+
+so on.  Provides detailed information on the  size  and position  of  each  executable  component  in the image
+
+file.<br>
+
+<br>
+
+<b>     --vm</b>&nbsp;<br>
+
+ This option tells createimage to produce an image  that can  be  easily  tailored to a virtual memory operating
+
+system.  A structure, called directory , is  placed  at the end of the image file, describing where in physical&nbsp;
+
+memory the processes should be placed.</p>
+
+<p>SEE ALSO<br>
+
+     objdump(1), gcc(1), ld(1), gas(1)<br>
+
+<br>
+
+     Check  the  ELF  Documentation  available  at  the course homepage for details on
+
+parsing of the executable components.<br>
+
+<br>
+
+BUGS<br>
+
+     The --extended switch must be placed before the --vm switch </p>
+
+
+
+
+
+
+
+
+
+</cleaned_tag></cleaned_tag></cleaned_tag></body></html>
